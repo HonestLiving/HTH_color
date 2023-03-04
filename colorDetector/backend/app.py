@@ -1,6 +1,36 @@
-from flask import Flask, jsonify, request
-import os
-from google.cloud import vision_v1
-from google.cloud.vision import types
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'eighth-azimuth-379620-8d1a7185a1be.json'
+def detectProperties(path):
+    from google.cloud import vision
+    import io
+    import os
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "C:/Users/ericy/HTH_color/colorDetector/backend/eighth-azimuth-379620-9f35143e3248.json"
+
+    client = vision.ImageAnnotatorClient()
+
+    with io.open(path, 'rb') as imageFile:
+        content = imageFile.read()
+
+    image = vision.Image(content=content)
+    response = client.image_properties(image=image)
+    props = response.image_properties_annotation
+    print("Properties: ")
+
+    for color in props.dominant_colors.colors:
+        print('fraction: {}'.format(color.pixel_fraction))
+        print('\tr: {}'.format(color.color.red))
+        print('\tg: {}'.format(color.color.green))
+        print('\tb: {}'.format(color.color.blue))
+        print('\ta: {}'.format(color.color.alpha))
+
+    if response.error.message:
+        raise Exception(
+            '{}\nFor more info on error messages, check: '
+            'https://cloud.google.com/apis/design/errors'.format(
+                response.error.message))
+
+
+try:
+    file_path = "C:/Users/ericy/OneDrive/Pictures/Camera Roll/WIN_20230304_18_07_20_Pro.jpg"
+    detectProperties(file_path)
+except Exception as e:
+    print("An error occurred: ", e)
