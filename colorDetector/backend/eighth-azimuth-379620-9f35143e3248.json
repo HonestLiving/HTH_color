@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "eighth-azimuth-379620",
+  "private_key_id": "9f35143e32488e48a1ed21901d400851a77e1d5f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCv9Ih7KF2q5Vov\nUkZm/ShpnvgQrpilF448hF149QVWJpRZiO6FG4SFdz+p1bcM/WMBMwpmyv1slHvE\nYkjXbxAhABWFABVHs4vM/o+2p8z8a5DE/lpWAFovj18br78advRB+q/aj2UbYVo5\nZQYV5YNyb058rTaz88jgghs+FwZYGNtF1ml8TKcy0S/TVmylmb/EIcXgvLSZchTE\nQkNF9F9ev63QP070xDty6sPaR9z7Fcc+p4zhbb9TXReILPE+FcJn7UVgMemlzdRR\nxJz0gRoIItZaopP+BxKXAHCS0qC0Mk/inJ0nEsGQ4AAsPsImuqroe4G9svJ9qQv2\nF87ekRWHAgMBAAECggEAS1CMKss4bLIHTEIXSHYMGkmlPN6/D8tpYpX1vJSEWD/j\nN//YuLjynH5Sjcugsrqy6gyC40T3/MYBxCmdrDkp2jZC/87tTOeZa4F62mAw6crR\nCMEmwbEc6UahGyS61AUewC8hnpfKW1HsYKzRUgYPoafrHIq344bx8MdACe+pE4O4\nVVj7cIh+8akxorQ+/oKGrsDCRJR7QurIX85lHLRa7binG+phVY08DA8BCf1GvF/l\nKc1f4bP2WX8VXuUIf6Ea2iB0kpgVdCXPOnyehIj3S+zA5RAhdQUZasQiDaWFxumh\n5lOceDFzBeu74/+ftaF7WI2In+BkPNA6+kQ/zCwtwQKBgQD330QaIxOmoTS9iJFv\nQy+TKrqXm/E6Rs4lGAoIXWaOUIvFbf86+d1sXgiFyQcyyflhbssbj2zuz38PJc6F\nynoxEvdXEotmFKg0tpmC4g1o1YEORqR+bfQ3OU7Vyo5Q6B2bVwwVr4OQ9TvYdf05\na3RK/FcWj2EOy6y6DqIT9jB7bwKBgQC1uZGb9LE2pcKGstL93s4llDApEq/PPFrA\nve9loDoUpCncloKKLfJdsIHmOwczk5Lf3VgjW2LTiBayXRciOCDt6YASj2MzZyNU\nVTqR+dpqOgFXMTj6ZMHL7Ro3cI1vClMxK0ESXXptLFpdX+3oLVaAGZ4lxk/OxIZz\nnFerNRJbaQKBgQDXOmxd7ZtAkrXC5XSzEbmbpfyDbIrXuWeCWg9MGB3W8SWMduiq\nAxA66qOn11iCx1HdQmDmO3GxI0cGliNvlNLpDbjrSFT2fHVZ4DwHo9VU9B6tkLWA\nemUWFpLXnJxasFIU8k6x/cbV9brTSBBq7Vz7R4UvN6xlNoFyxQYDI0ARzQKBgQCI\nnPyt9YHTx0E56e1cFMd80K5z8ixg6sp+40q5Z37CTbd6sVtpbakqbar53Z5IU8Sy\nrr+3tNfSlhgZ9omRnAiFUmiJi2nUFtEkcP4bB23/NaQUXFitRFm8aH6w9tgchfKM\noCvHFqcWs6UrVRaQ2KSSoK+XTkJo+qzo9LujZb5rIQKBgCH847WmDvWDf5immfzW\npAjvSvjVw7Sx1AMhPCJwHjbQGVSayA6n7XPz5fpHeI6REA3HQu17HkItdCPrpa9U\nyh1D+1flbh4xGqXPCd7OdnuEzSMhno/kUdpjsHCLJr/2PaNBejkEE1+/rz7cOSci\nrzE9E8Vt9dbjmEMEUYYz5DBZ\n-----END PRIVATE KEY-----\n",
+  "client_email": "hack-the-hill-color-detector@eighth-azimuth-379620.iam.gserviceaccount.com",
+  "client_id": "105007035472059391326",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/hack-the-hill-color-detector%40eighth-azimuth-379620.iam.gserviceaccount.com"
+}
