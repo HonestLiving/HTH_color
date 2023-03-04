@@ -32,7 +32,6 @@ export default function App() {
         //references the camera here
         ref = {cameraRef}
         >
-          <Text> Hello </Text>
         </Camera>
     </View>
   );
