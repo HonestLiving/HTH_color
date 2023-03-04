@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { Image } from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 import { Camera, CameraType } from 'expo-camera';
 import * as MediaLibrary from "expo-media-library";
 
