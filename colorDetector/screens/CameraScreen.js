@@ -136,7 +136,7 @@ function CameraScreen(navigation) {
               onPress={() => setImage(null)}
               icon="retweet"
             />
-            <Button title="Save" onPress={savePicture} icon="check" />
+            <Button title="Analyze" onPress={savePicture} icon="check" />
           </View>
         ) : (
           //picture button
