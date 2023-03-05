@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect, useRef} from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image, SafeAreaView, StatusBar  } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import Constants from 'expo-constants';
 import SplashScreen from 'react-native-splash-screen';
 import { Camera, CameraType } from 'expo-camera';
@@ -34,9 +34,33 @@ function CameraScreen(navigation) {
         console.log(data);
         //image is set to the data from the picture
         setImage(data.uri);
+        sendImage()
     }
   };
 
+  const sendImage = async () => {
+    if (image) {
+      const formData = new FormData();
+      formData.append('image', {
+        uri: image,
+        name: 'photo.jpg',
+        type: 'image/jpg',
+      });
+      try {
+        const response = await fetch('http://your-flask-endpoint.com', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'content-type': 'multipart/form-data',
+          },
+        });
+        const result = await response.json();
+        console.log(result);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
 
   const savePicture = async () => {
     if (image) {
@@ -55,7 +79,6 @@ function CameraScreen(navigation) {
   return (
 
     <View style={styles.container}>
-    <StatusBar hidden={true} />
       {!image ? (
         <Camera
           style={styles.camera}
