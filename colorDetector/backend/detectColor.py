@@ -1,4 +1,4 @@
-
+colorList = []
 def detectProperties(path):
     from google.cloud import vision
     import io
@@ -6,7 +6,7 @@ def detectProperties(path):
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/eighth-azimuth-379620-9f35143e3248.json"
 
     client = vision.ImageAnnotatorClient()
-
+    colorList = []
     with io.open(path, 'rb') as imageFile:
         content = imageFile.read()
 
@@ -27,15 +27,14 @@ def detectProperties(path):
         print(f"fraction: {color.pixel_fraction*100:.2f}%")
         print('\thex color code: {}'.format(rgb_to_hex(r, g, b)))
         print()
+        
+        list.append(colorList, 'hex color code: {}'.format(rgb_to_hex(r, g, b)))
 
     if response.error.message:
         raise Exception(
             '{}\nFor more info on error messages, check: '
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
+    return colorList
 
-try:
-    file_path = "C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/Screenshot_5.png"
-    detectProperties(file_path)
-except Exception as e:
-    print("An error occurred: ", e)
+
