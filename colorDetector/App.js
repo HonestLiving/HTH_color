@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import Constants from 'expo-constants';
+import { useState, useEffect, useRef} from 'react';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import { Image } from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
 import { Camera, CameraType } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 import { MaterialIcons } from '@expo/vector-icons';

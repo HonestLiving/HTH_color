@@ -1,36 +1,24 @@
+from flask import Flask, request, jsonify, render_template
+from detectColor import detectProperties
 
-def detectProperties(path):
-    from google.cloud import vision
-    import io
-    import os
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "C:/Users/ericy/HTH_color/colorDetector/backend/eighth-azimuth-379620-9f35143e3248.json"
 
-    client = vision.ImageAnnotatorClient()
+def flaskTest():
+    newApp = Flask(__name__)
 
-    with io.open(path, 'rb') as imageFile:
-        content = imageFile.read()
+    @newApp.route('/')
+    def index():
+        # return render_template('index.html')
+        return ("<p>" + "</p><p>".join(detectProperties("C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/Screenshot_5.png")) + "</p")
+        # return "Hi"
+    # index()
 
-    image = vision.Image(content=content)
-    response = client.image_properties(image=image)
-    props = response.image_properties_annotation
-    print("Properties: ")
-
-    for color in props.dominant_colors.colors:
-        print('fraction: {}'.format(color.pixel_fraction))
-        print('\tr: {}'.format(color.color.red))
-        print('\tg: {}'.format(color.color.green))
-        print('\tb: {}'.format(color.color.blue))
-        print('\ta: {}'.format(color.color.alpha))
-
-    if response.error.message:
-        raise Exception(
-            '{}\nFor more info on error messages, check: '
-            'https://cloud.google.com/apis/design/errors'.format(
-                response.error.message))
+    if __name__ == "__main__":
+        newApp.run(debug=True)
 
 
 try:
-    file_path = "C:/Users/ericy/OneDrive/Pictures/Camera Roll/WIN_20230304_18_07_20_Pro.jpg"
-    detectProperties(file_path)
+    # file_path = "C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/Screenshot_5.png"
+    # detectProperties(file_path)
+    flaskTest()
 except Exception as e:
     print("An error occurred: ", e)
