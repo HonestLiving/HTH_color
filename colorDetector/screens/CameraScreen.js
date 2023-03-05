@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect, useRef} from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Image, SafeAreaView, StatusBar } from 'react-native';
 import Constants from 'expo-constants';
 import SplashScreen from 'react-native-splash-screen';
 import { Camera, CameraType } from 'expo-camera';
@@ -77,7 +77,7 @@ function CameraScreen(navigation) {
 
      //Camera Style Stuff
   return (
-
+    
     <View style={styles.container}>
       {!image ? (
         <Camera
@@ -90,7 +90,8 @@ function CameraScreen(navigation) {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              paddingHorizontal: 30,
+              paddingHorizontal: 20,
+              paddingVertical:40,
             }}
           >
             <Button
@@ -101,6 +102,7 @@ function CameraScreen(navigation) {
                   type === CameraType.back ? CameraType.front : CameraType.back
                 );
               }}
+              
             />
             <Button
               onPress={() =>
@@ -113,6 +115,7 @@ function CameraScreen(navigation) {
               icon="flash"
               color={flash === Camera.Constants.FlashMode.off ? 'white' : 'yellow'}
             />
+            
           </View>
         </Camera>
       ) : (

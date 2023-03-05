@@ -17,7 +17,7 @@ function App() {
     <NavigationContainer>
     <Stack.Navigator initialRouteName='Home'>
       <Stack.Screen name="Home" component={WelcomeScreen} options={{headerShown:false}}/>
-      <Stack.Screen name="Camera" component={CameraScreen} />
+      <Stack.Screen name="Camera" component={CameraScreen} options={{headerTransparent:true,headerTitle: "", }} />
     </Stack.Navigator>
   </NavigationContainer>
   )
