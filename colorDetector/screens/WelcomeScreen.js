@@ -30,13 +30,23 @@ function WelcomeScreen({ navigation }) {
         style={[styles.image, { transform: [{ scale }] }]}
       />
       
-      <TouchableOpacity
+      <TouchableOpacity id='cam'
         style={styles.button}
         onPress={() => navigation.navigate('Camera')}
       >
         <Icon name="camera" size={18} color="white" />
         <Text style={styles.buttonText}>  Identify Color</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.cam}
+        onPress={() => navigation.navigate('Result')}
+      >
+        <Icon name="backward" size={18} color="white" />
+        <Text style={styles.buttonText}>  Last Image</Text>
+      </TouchableOpacity>
+
+
       <StatusBar hidden={true} />
 
     </View>
@@ -49,6 +59,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
+  },
+  cam:{
+    flexDirection: 'row',
+    backgroundColor: '#1CB4EB',
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 35,
+    width:120,
   },
   button: {
     flexDirection: 'row',

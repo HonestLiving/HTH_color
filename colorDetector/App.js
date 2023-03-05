@@ -9,6 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CameraScreen from './screens/CameraScreen';
 import * as React from 'react';
+import ResultScreen from './screens/ResultScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,7 @@ function App() {
     <Stack.Navigator initialRouteName='Home'>
       <Stack.Screen name="Home" component={WelcomeScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Camera" component={CameraScreen} options={{headerTransparent:true,headerTitle: "", }} />
+      <Stack.Screen name="Result" component={ResultScreen} options={{headerTransparent:true,headerTitle: "", }}/>
     </Stack.Navigator>
   </NavigationContainer>
   )
