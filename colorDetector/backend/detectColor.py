@@ -2,7 +2,7 @@ def detectProperties(path):
     from google.cloud import vision
     import io
     import os
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/eighth-azimuth-379620-9f35143e3248.json"
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "C:/Users/ericy/HTH_color/colorDetector/backend/eighth-azimuth-379620-9f35143e3248.json"
 
     client = vision.ImageAnnotatorClient()
 
@@ -27,7 +27,7 @@ def detectProperties(path):
         fraction = color.pixel_fraction
         hexCode = rgb_to_hex(r, g, b)
         colorList.append({"fraction": fraction, "hex": hexCode})
-    
+
     # Test code
     for color in colorList:
         fraction_percent = round(color["fraction"] * 100, 2)
@@ -41,5 +41,8 @@ def detectProperties(path):
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
     return colorList
+
+
 # Test code
-detectProperties("C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/pictures/Screenshot_5.png")
+detectProperties(
+    "C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/pictures/Screenshot_5.png")

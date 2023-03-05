@@ -34,11 +34,11 @@ function CameraScreen(navigation) {
         console.log(data);
         //image is set to the data from the picture
         setImage(data.uri);
-        sendImage()
+        //sendImage()
     }
   };
 
-  const sendImage = async () => {
+  /*const sendImage = async () => {
     if (image) {
       const formData = new FormData();
       formData.append('image', {
@@ -47,7 +47,7 @@ function CameraScreen(navigation) {
         type: 'image/jpg',
       });
       try {
-        const response = await fetch('http://your-flask-endpoint.com', {
+        const response = await fetch('http://localhost:5000/upload', {
           method: 'POST',
           body: formData,
           headers: {
@@ -60,7 +60,7 @@ function CameraScreen(navigation) {
         console.error(error);
       }
     }
-  };
+  };*/
 
   const savePicture = async () => {
     if (image) {
