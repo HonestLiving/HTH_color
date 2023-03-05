@@ -4,7 +4,8 @@ import { View, Text, StyleSheet } from 'react-native';
 function ResultScreen(navigation) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Result Screen</Text>
+      <Text style={styles.text}>Result</Text>
+      <Text style={styles.text}>Hexa</Text>
       {/* Your result view components here */}
     </View>
   );
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'red',
     padding: 20,
   },
   text: {
