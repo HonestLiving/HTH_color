@@ -3,7 +3,7 @@ def detectProperties(path):
     from google.cloud import vision
     import io
     import os
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/eighth-azimuth-379620-9f35143e3248.json"
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "C:/Users/ericy/HTH_color/colorDetector/backend/eighth-azimuth-379620-9f35143e3248.json"
 
     client = vision.ImageAnnotatorClient()
 
@@ -24,7 +24,7 @@ def detectProperties(path):
         r = color.color.red
         g = color.color.green
         b = color.color.blue
-        print(f"fraction: {color.pixel_fraction*100:.2f}%")
+        print(f"\tfraction of color: {color.pixel_fraction*100:.2f}%")
         print('\thex color code: {}'.format(rgb_to_hex(r, g, b)))
         print()
 
@@ -34,8 +34,9 @@ def detectProperties(path):
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
 
+
 try:
-    file_path = "C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/Screenshot_5.png"
+    file_path = "colorDetector/backend/pictures/WIN_20230304_18_07_20_Pro.jpg"
     detectProperties(file_path)
 except Exception as e:
     print("An error occurred: ", e)
