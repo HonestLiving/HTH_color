@@ -15,12 +15,18 @@ def detectProperties(path):
     props = response.image_properties_annotation
     print("Properties: ")
 
+    def rgb_to_hex(r, g, b):
+        return "#{:02x}{:02x}{:02x}".format(int(r), int(g), int(b))
+
     for color in props.dominant_colors.colors:
-        print('fraction: {}'.format(color.pixel_fraction))
-        print('\tr: {}'.format(color.color.red))
-        print('\tg: {}'.format(color.color.green))
-        print('\tb: {}'.format(color.color.blue))
-        print('\ta: {}'.format(color.color.alpha))
+        r = color.color.red
+        g = color.color.green
+        b = color.color.blue
+        print('fraction: {:.2f}%'.format(color.pixel_fraction*100))
+        print('\tr: {}'.format(r))
+        print('\tg: {}'.format(g))
+        print('\tb: {}'.format(b))
+        print('\thex color code: {}'.format(rgb_to_hex(r, g, b)))
 
     if response.error.message:
         raise Exception(
