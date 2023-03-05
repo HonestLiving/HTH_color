@@ -1,4 +1,3 @@
-
 def detectProperties(path):
     from google.cloud import vision
     import io
@@ -13,20 +12,21 @@ def detectProperties(path):
     image = vision.Image(content=content)
     response = client.image_properties(image=image)
     props = response.image_properties_annotation
-    print("Color Distributions: ")
 
     def rgb_to_hex(r, g, b):
         return "#{:02x}{:02x}{:02x}".format(int(r), int(g), int(b))
 
     colors = sorted(props.dominant_colors.colors,
                     key=lambda c: c.pixel_fraction, reverse=True)
+
+    colorList = []
     for color in colors:
         r = color.color.red
         g = color.color.green
         b = color.color.blue
-        print(f"\tfraction of color: {color.pixel_fraction*100:.2f}%")
-        print('\thex color code: {}'.format(rgb_to_hex(r, g, b)))
-        print()
+        fraction = color.pixel_fraction
+        hexCode = rgb_to_hex(r, g, b)
+        colorList.append({"fraction": fraction, "hex": hexCode})
 
     if response.error.message:
         raise Exception(
@@ -34,9 +34,4 @@ def detectProperties(path):
             'https://cloud.google.com/apis/design/errors'.format(
                 response.error.message))
 
-
-try:
-    file_path = "colorDetector/backend/pictures/WIN_20230304_18_07_20_Pro.jpg"
-    detectProperties(file_path)
-except Exception as e:
-    print("An error occurred: ", e)
+    return colorList
