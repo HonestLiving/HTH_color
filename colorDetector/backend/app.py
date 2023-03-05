@@ -13,20 +13,20 @@ def detectProperties(path):
     image = vision.Image(content=content)
     response = client.image_properties(image=image)
     props = response.image_properties_annotation
-    print("Properties: ")
+    print("Color Distributions: ")
 
     def rgb_to_hex(r, g, b):
         return "#{:02x}{:02x}{:02x}".format(int(r), int(g), int(b))
 
-    for color in props.dominant_colors.colors:
+    colors = sorted(props.dominant_colors.colors,
+                    key=lambda c: c.pixel_fraction, reverse=True)
+    for color in colors:
         r = color.color.red
         g = color.color.green
         b = color.color.blue
-        print('fraction: {:.2f}%'.format(color.pixel_fraction*100))
-        print('\tr: {}'.format(r))
-        print('\tg: {}'.format(g))
-        print('\tb: {}'.format(b))
+        print(f"fraction: {color.pixel_fraction*100:.2f}%")
         print('\thex color code: {}'.format(rgb_to_hex(r, g, b)))
+        print()
 
     if response.error.message:
         raise Exception(
