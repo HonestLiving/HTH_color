@@ -1,24 +1,32 @@
 from flask import Flask, request, jsonify, render_template
 from detectColor import detectProperties
 
+newApp = Flask(__name__)
 
 def flaskTest():
-    newApp = Flask(__name__)
-
-    @newApp.route('/')
+    @newApp.route('/', methods=['POST', 'GET'])
     def index():
-        # return render_template('index.html')
-        return ("<p>" + "</p><p>".join(detectProperties("C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/Screenshot_5.png")) + "</p")
-        # return "Hi"
-    # index()
+    # return render_template('index.html')
+    #color_list = detectProperties("C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/pictures/Screenshot_5.png")
+    #fraction_list = 
+    #return ("<p>" + "</p><p>".join(detectProperties("C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/pictures/Screenshot_5.png")) + "</p")
+        return "This is default"
+    # get the file from the POST request
+    #file = request.files['file']
+    # pass the file to the detectProperties function
+    #color_list = detectProperties(file)
+    # return the color_list as a JSON response
+    #return jsonify(color_list)
+    @newApp.route('/upload', methods=['POST', 'GET'])
+    def upload():
+        file = request.files['file']
+        colors = detectProperties(file)
+        return jsonify(colors)
 
     if __name__ == "__main__":
         newApp.run(debug=True)
 
-
 try:
-    # file_path = "C:/Users/DESTR/Documents/GitHub/HTH_color/colorDetector/backend/Screenshot_5.png"
-    # detectProperties(file_path)
     flaskTest()
 except Exception as e:
     print("An error occurred: ", e)
