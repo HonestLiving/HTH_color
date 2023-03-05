@@ -6,7 +6,6 @@ function ResultScreen(navigation) {
     <View style={styles.container}>
       <Text style={styles.text}>Result</Text>
       <Text style={styles.text}>Hexa</Text>
-      {/* Your result view components here */}
     </View>
   );
 }
