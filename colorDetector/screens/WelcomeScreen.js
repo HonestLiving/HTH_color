@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { StyleSheet} from 'react-native';
+import { StatusBar } from 'react-native';
+
 
 function WelcomeScreen({ navigation }) {
   return (
@@ -10,6 +12,8 @@ function WelcomeScreen({ navigation }) {
         title="Go to Camera"
         onPress={() => navigation.navigate('Camera')}
       />
+      <StatusBar hidden={true} />
+
     </View>
   );
 }
